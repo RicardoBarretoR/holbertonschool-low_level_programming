@@ -5,24 +5,23 @@
  */
 int main(void)
 {
-	int comb1 = 48;
-	int comb2 = 48;
+	int comb1, comb2;
 
-	while (comb1 <= 57)
+	for (comb1 = '0'; comb1 <= '9'; comb1++)
 	{
-		while (comb2 <= 57)
+		for (comb2 = '0'; comb2 <= '9'; comb2++)
 		{
 			putchar(comb1);
 			putchar(comb2);
 
-			if (comb1 != 57 && comb2 != 57)
+			if (comb1 != '9' || comb2 != '9')
 			{
 				putchar(',');
 				putchar(' ');
 			}
-			comb2++;
 		}
-		comb1++;
 	}
+	putchar('\n');
+
 	return (0);
 }
