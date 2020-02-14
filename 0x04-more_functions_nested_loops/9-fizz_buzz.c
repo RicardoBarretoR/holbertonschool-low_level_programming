@@ -1,14 +1,14 @@
 #include <stdio.h>
 /**
  *main - function that prints the numbers from 1 to 100
- *
+ *Return: 0
  */
- int main(void)
+int main(void)
 {
 	int i;
 	int div1 = 0;
 	int div2 = 0;
-		
+
 	for (i = 1; i <= 100; i++)
 	{
 		div1 = i % 3;
@@ -18,7 +18,7 @@
 		{
 			printf("FizzBuzz ");
 		}
-		else if(div1 == 0)
+		else if (div1 == 0)
 		{
 			printf("Fizz ");
 		}
@@ -32,4 +32,6 @@
 		}
 	}
 	printf("\n");
+
+	return (0);
 }
