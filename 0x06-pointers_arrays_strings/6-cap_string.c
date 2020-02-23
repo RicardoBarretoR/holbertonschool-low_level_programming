@@ -15,6 +15,13 @@ char *cap_string(char *s)
 	{
 		for (j = 0; dlm[j] != '\0'; j++)
 		{
+			if (i == 0)
+			{
+				if (s[i]  >= 'a' && s[i] <= 'z')
+				{
+					s[i] -= 32;
+				}
+			}
 			if (s[i] == dlm[j])
 			{
 				if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
