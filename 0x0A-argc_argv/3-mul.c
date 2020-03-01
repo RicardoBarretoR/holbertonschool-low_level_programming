@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <stdlib.h>
 /**
  *main - function that multiplies two numbers
  *@argc: Recount of the arguments provided
@@ -20,8 +21,8 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; i < argc; i++)
 	{
-		num1 = _atoi(argv[1]);
-		num2 = _atoi(argv[2]);
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[2]);
 	}
 
 	resul = num1 * num2;
