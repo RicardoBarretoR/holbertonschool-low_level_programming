@@ -9,11 +9,11 @@ void print_dog(struct dog *d)
 	if (d != NULL)
 	{
 
-		if ((*d).name == NULL)
+		if (d->name == NULL)
 		{
 			printf("name: (nil)");
 		}
-		if ((*d).owner == NULL)
+		if (d->owner == NULL)
 		{
 			printf("owner: (nil)");
 		}
