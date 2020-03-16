@@ -5,7 +5,7 @@
  */
 void print_char(va_list args)
 {
-	printf("%c", va_arg(args, int));  //chars get promoted to ints
+	printf("%c", va_arg(args, int));
 }
 
 /**
@@ -19,7 +19,7 @@ void print_int(va_list args)
 
 /**
  * print_float - prints floating point numbers
- * @arg: pointer to arguments list
+ * @args: pointer to arguments list
  */
 void print_float(va_list args)
 {
@@ -28,14 +28,14 @@ void print_float(va_list args)
 
 /**
  * print_string - prints strings
- * @arg: pointer to arguments list
+ * @args: pointer to arguments list
  */
 void print_string(va_list args)
 {
 	char *s;
 
-	s = va_list(args, char*);
-	s = NULL ? printf("(nil)") : printf("%s", s);
+	s = va_arg(args, char*);
+	s == NULL ? printf("(nil)") : printf("%s", s);
 }
 
 /**
@@ -63,11 +63,11 @@ void print_all(const char * const format, ...)
 		{
 			j = 0;
 
-			while (matrix[j]->fto)
+			while (matrix[j].fto)
 			{
-				if (*(matrix[j]->fto) == format[i])
+				if (*(matrix[j].fto) == format[i])
 				{
-					matrix[j]->p(args);
+					matrix[j].p(args);
 					if (format[i + 1] != '\0')
 						printf(", ");
 
