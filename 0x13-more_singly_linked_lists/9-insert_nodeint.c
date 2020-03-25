@@ -1,43 +1,51 @@
 #include "lists.h"
+
 /**
- * insert_nodeint_at_index - Entry Point
- * @head: head
- * @idx: index
- * @n: data
- * Return: 0
- */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+* insert_nodeint_at_index - inserts new node in listint_t list at given index
+* @head: pointer to head pointer of the list
+* @index: node to insert at
+* @n: data of the new node
+* Return: the address of the new node, or NULL
+**/
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 {
-	unsigned int count = 0;
+	listint_t *temp, *prev, *new;
+	unsigned int i;
 
-	listint_t *new;
-	listint_t *temp;
-
-	if (*head == NULL)
+	if (head == NULL)
 		return (NULL);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	(*new).n = n;
+	(*new).next = NULL;
 
-	temp = *head;
-
+	if (index == 0)
+	{
+		(*new).next = *head;
+		*head = new;
+		return (new);
+	}
+	i = 1;
+	prev = *head;
+	temp = (*(*head)).next;
 	while (temp != NULL)
 	{
-		if (count == idx - 1)
+		if (i == index)
 		{
-			new = malloc(sizeof(listint_t));
-			if (new == NULL)
-			{
-				return (NULL);
-			}
-			else
-			{
-				new->n = n;
-				new->next = temp->next;
-				temp->next = new;
-				return (new);
-			}
+			(*prev).next = new;
+			(*new).next = temp;
+			return (new);
 		}
-		if (temp->next != NULL)
-			temp = temp->next;
-		count++;
+		prev = temp;
+		temp = (*temp).next;
+		i++;
 	}
+	if (temp == NULL && i == index)
+	{
+		(*prev).next = new;
+		return (new);
+	}
+	free(new); /* coud not find a place */
 	return (NULL);
 }
