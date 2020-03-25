@@ -5,18 +5,15 @@
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *tmp, *a;
+	listint_t *tmp;
 
 	if (*head == NULL)
 		return;
 
-	a = *head;
-	while (a->next != NULL)
+	while (*head != NULL)
 	{
-		tmp = a;
-		a = tmp->next;
-		free(tmp);
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
 	}
-	free(a);
-	*head = NULL;
 }
