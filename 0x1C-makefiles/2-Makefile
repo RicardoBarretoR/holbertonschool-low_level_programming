@@ -1,0 +1,6 @@
+CC = gcc
+SRC = main.c holberton.c
+NAME = holberton
+#This rule compile the program main
+all: $(SRC) m.h
+	$(CC) $(SRC) -o $(NAME)
