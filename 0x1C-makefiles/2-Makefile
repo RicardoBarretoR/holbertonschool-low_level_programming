@@ -1,6 +1,13 @@
-CC = gcc
-SRC = main.c holberton.c
-NAME = holberton
+CC=gcc
+SRC=main.c holberton.c
+OBJ=main.o holberton.o
+NAME=holberton
 #This rule compile the program main
-all: $(SRC) m.h
-	$(CC) $(SRC) -o $(NAME)
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+main.o: $(SRC) m.h
+	$(CC) -c main.c
+
+holberton.o: $(SRC) m.h
+	$(CC) -c holberton.c
